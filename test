@@ -1,0 +1,28 @@
+#!/bin/bash
+for file in $(ls *.h) $(ls *.c)
+do
+	ci $file 
+done 
+for file in $(ls *.h,v)$(ls *.c,v)
+do 
+	co $file
+done
+if ( make )
+then
+	read -p " compilation succesfull do you want to run (y/n) " resp
+	if [ $resp = 'y' ]
+	then 
+		./project
+		read -p "press any key"
+	fi
+	else
+echo "compilation fails"
+fi
+read -p " Do you want to edit further (y/n)? "  resp
+if [ $resp = 'y' ] 
+then
+	for file in $(ls *.h) $(ls *.c)
+do
+	co -l $file 
+done
+fi	

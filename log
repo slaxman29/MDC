@@ -1,0 +1,5 @@
+#!/bin/bash
+for file in $(ls *.h) $(ls *.c)
+do 
+	rlog $file >> logfile
+done

@@ -1,0 +1,40 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2016.10.21.11.26.38;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Here we open any file with read and write both modes
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"header.h"
+#include"prototype.h"
+int openfile(char *fn)
+{	
+	int fd1;
+//	printf("openfilefilename:=%s\n",fn);
+	fd1=open(fn,O_RDWR|O_CREAT);
+	if(fd1==-1)
+	{
+		perror("open");
+		exit(EXIT_FAILURE);
+	}	
+	
+	return fd1;
+}
+@

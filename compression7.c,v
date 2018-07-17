@@ -1,0 +1,365 @@
+head	1.2;
+access;
+symbols;
+locks
+	root:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2016.11.01.05.19.03;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2016.10.21.11.22.13;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@this is for 7 bit compression
+@
+
+
+1.2
+log
+@some ststement are repeting so that compression data is manupulats we remove that data
+@
+text
+@#include"header.h"
+#include"prototype.h"
+int compression7(int fd1,char *ma)
+{	
+	int i,fd,j=0,sl;
+	unsigned char ch,copy1,copy2,*fn,c,byt;
+	sl=strlen(ma);
+	fd=(*fp4)("com7");
+	lseek(fd1,0,SEEK_SET);
+	while(1)
+	{
+		byt=byt^byt;
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);	
+		c=c<<1;
+		byt=byt|c;
+//							printf("byt1:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<1;
+		copy1=c;
+		c=c>>7;
+		byt=byt|c;
+							printf("1byt2:=%d\n",byt);
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<1;
+		byt=byt|copy1;
+//							printf("byt3:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<1;
+		copy1=c;
+		c=c>>6;
+		byt=byt|c;
+							printf("2byt4:=%d\n",byt);
+//		printf("byt3:=%d\n",byt);
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<2;
+		byt=byt|copy1;
+//							printf("byt5:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<1;
+		copy1=c;
+		c=c>>5;
+		byt=byt|c;
+							printf("3byt6:=%d\n",byt);
+//		printf("byt3:=%d\n",byt);
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<3;
+		byt=byt|copy1;
+//							printf("byt7:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<1;
+		copy1=c;
+		c=c>>4;
+		byt=byt|c;
+							printf("4byt8:=%d\n",byt);
+//		printf("byt3:=%d\n",byt);
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<4;
+		byt=byt|copy1;
+//							printf("byt9:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<1;
+		copy1=c;
+		c=c>>3;
+		byt=byt|c;
+							printf("5byt10:=%d\n",byt);
+//		printf("byt3:=%d\n",byt);
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<5;
+		byt=byt|copy1;
+//							printf("byt11:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<1;
+		copy1=c;
+		c=c>>2;
+		byt=byt|c;
+							printf("6byt12:=%d\n",byt);
+//		printf("byt3:=%d\n",byt);
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<6;
+		byt=byt|copy1;
+//							printf("byt13:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<1;
+		copy1=c;
+		c=c>>1;
+		byt=byt|c;
+							printf("7byt14:=%d\n",byt);
+/*		printf("byt3:=%d\n",byt);
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<7;
+		byt=byt|copy1;
+//							printf("byt15:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<1;
+		c=c>>1;
+		byt=byt|c;
+							printf("8byt16:=%d\n",byt);	*/
+		(*fp8)(byt,fd);  
+	}
+	return 0;
+}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d6 1
+a6 1
+	unsigned char ch,copy1,copy2,*fn,c,byt,a[]="compression7";
+d8 1
+a8 2
+	fn=a;
+	fd=(*fp4)(fn);
+d15 4
+d20 1
+d32 1
+a32 1
+							printf("byt1:=%d\n",byt);
+d35 4
+d40 1
+d54 1
+a54 1
+							printf("byt2:=%d\n",byt);
+d59 1
+a59 1
+							printf("byt3:=%d\n",byt);
+d62 4
+d67 1
+d81 1
+a81 1
+							printf("byt4:=%d\n",byt);
+d87 1
+a87 1
+							printf("byt5:=%d\n",byt);
+d90 4
+d95 1
+d109 1
+a109 1
+							printf("byt6:=%d\n",byt);
+d115 1
+a115 1
+							printf("byt7:=%d\n",byt);
+d118 4
+d123 1
+d137 1
+a137 1
+							printf("byt8:=%d\n",byt);
+d143 1
+a143 1
+							printf("byt9:=%d\n",byt);
+d146 4
+d151 1
+d165 1
+a165 1
+							printf("byt10:=%d\n",byt);
+d171 1
+a171 1
+							printf("byt11:=%d\n",byt);
+d174 4
+d179 1
+d193 1
+a193 1
+							printf("byt12:=%d\n",byt);
+d199 1
+a199 1
+							printf("byt13:=%d\n",byt);
+d202 4
+d207 1
+d221 2
+a222 2
+							printf("byt14:=%d\n",byt);
+//		printf("byt3:=%d\n",byt);
+d227 1
+a227 1
+							printf("byt15:=%d\n",byt);
+d230 4
+d235 1
+d248 2
+a249 2
+							printf("byt16:=%d\n",byt);
+		(*fp8)(byt,fd);
+@

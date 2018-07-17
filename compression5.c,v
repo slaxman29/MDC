@@ -1,0 +1,313 @@
+head	1.2;
+access;
+symbols;
+locks
+	root:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2016.11.01.05.17.01;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2016.10.21.11.21.34;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@this is for 5 bit compression
+@
+
+
+1.2
+log
+@Addition of a new extra byt and some change in error giving statements
+@
+text
+@#include"header.h"
+#include"prototype.h"
+int compression5(int fd1,char *ma)
+{	
+	int i,fd,j=0,sl;
+	unsigned char ch,copy1,copy2,*fn,c,byt;
+	sl=strlen(ma);
+	fd=(*fp4)("com5");
+	lseek(fd1,0,SEEK_SET);
+	while(1)
+	{
+		byt=byt^byt;
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);	
+		c=c<<3;
+		byt=byt|c;
+//							printf("byt1:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<3;
+		copy1=c;
+		c=c>>5;
+		byt=byt|c;
+							printf("1byt2:=%d\n",byt);
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<3;
+		byt=byt|copy1;
+//							printf("byt3:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+//							printf("c:=%d\n",c);
+		c=c<<3;
+//							printf("c:=%d\n",c);
+		c=c>>2;
+//							printf("c:=%d\n",c);
+		byt=byt|c;
+//							printf("byt4:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<3;
+		copy1=c;
+		c=c>>7;
+		byt=byt|c;
+							printf("2byt5:=%d\n",byt);
+//		printf("byt3:=%d\n",byt);
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<1;
+		byt=byt|copy1;
+//							printf("byt6:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<3;
+		copy1=c;
+		c=c>>4;
+		byt=byt|c;
+							printf("3byt7:=%d\n",byt);
+//		printf("byt3:=%d\n",byt);
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<4;
+		byt=byt|copy1;
+//		byt=byt|c;
+//							printf("byt8:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<3;
+		c=c>>1;
+		byt=byt|c;
+//							printf("byt9:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<3;
+		copy1=c;
+		c=c>>6;
+		byt=byt|c;
+							printf("4byt10:=%d\n",byt);
+//		printf("byt3:=%d\n",byt);
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<2;
+		byt=byt|copy1;
+//							printf("byt11:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<3;
+		c=c>>3;
+		byt=byt|c;
+							printf("5byt12:=%d\n",byt);
+		(*fp8)(byt,fd);
+	}
+	return 0;
+}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d6 1
+a6 1
+	unsigned char ch,copy1,copy2,*fn,c,byt,a[]="compression5";
+d8 1
+a8 2
+	fn=a;
+	fd=(*fp4)(fn);
+d15 5
+a19 1
+			break;
+d31 1
+a31 1
+							printf("byt1:=%d\n",byt);
+d34 4
+d39 1
+d53 1
+a53 1
+							printf("byt2:=%d\n",byt);
+d58 1
+a58 1
+							printf("byt3:=%d\n",byt);
+d61 4
+d66 1
+d82 1
+a82 1
+							printf("byt4:=%d\n",byt);
+d85 4
+d90 1
+d104 1
+a104 1
+							printf("byt5:=%d\n",byt);
+d110 1
+a110 1
+							printf("byt6:=%d\n",byt);
+d113 4
+d118 1
+d132 1
+a132 1
+							printf("byt7:=%d\n",byt);
+d138 2
+a139 2
+		byt=byt|c;
+							printf("byt8:=%d\n",byt);
+d142 4
+d147 1
+d160 1
+a160 1
+							printf("byt9:=%d\n",byt);
+d163 4
+d168 1
+d182 1
+a182 1
+							printf("byt10:=%d\n",byt);
+d188 1
+a188 2
+		byt=byt|c;
+							printf("byt11:=%d\n",byt);
+d191 4
+d196 1
+d208 2
+a209 1
+							printf("byt12:=%d\n",byt);
+@

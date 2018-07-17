@@ -1,0 +1,128 @@
+head	1.6;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.6
+date	2017.07.14.09.51.00;	author laxman29;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.07.06.05.41.01;	author laxman29;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.07.06.05.21.16;	author laxman29;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.07.04.10.09.28;	author laxman29;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.07.04.10.08.05;	author laxman29;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.07.04.10.05.43;	author laxman29;	state Exp;
+branches;
+next	;
+
+
+desc
+@created the fn to find the index value
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@#include"header.h"
+#include"declaration.h"
+int findindex(char ch,char *ma)
+{
+   int i, len;
+//   printf("Begin of function\n",__func__);
+   len = strlen(ma);
+   for (i=0;i<len;i++)
+{
+	if (ch == *(ma+i))
+		return i;
+}
+printf("%s End of function", __func__);
+exit(EXIT_FAILURE);
+   
+}
+@
+
+
+1.5
+log
+@se.
+@
+text
+@d6 1
+a6 1
+   printf("Begin of function\n",__func__);
+@
+
+
+1.4
+log
+@se
+@
+text
+@d10 1
+a10 1
+	if (ch==*(ma+i))
+@
+
+
+1.3
+log
+@se
+@
+text
+@d12 1
+d15 1
+a15 2
+}   
+
+@
+
+
+1.2
+log
+@se
+@
+text
+@d3 1
+a3 1
+int findindex(char,char*)
+d5 1
+a5 1
+   int len;
+d10 1
+a10 1
+	if (char==*(ma+i))
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d3 1
+a3 1
+int findindex(char,char*);
+@

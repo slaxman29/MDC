@@ -1,0 +1,104 @@
+head	1.3;
+access;
+symbols;
+locks
+	root:1.3; strict;
+comment	@ * @;
+
+
+1.3
+date	2017.07.15.03.49.53;	author root;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2016.10.22.06.50.12;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2016.10.21.11.15.03;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Diclaration of all function
+And also diclaration of their function pointer
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@int* mainmenu();
+int* (*fp1)();
+int compression();
+int (*fp2)();
+char* filename();
+char* (*fp3)();
+int openfile(char *);
+int (*fp4)(char *);
+char* readfile(int);
+char* (*fp5)(int);
+char* masterarray(int);
+char* (*fpma)(int);
+int unique(int,char,char *);
+int (*fp6)(int,char,char *);
+int insert(int,int,int,char*,char);
+int (*fp7)(int,int,int,char*,char);
+int writefile(char,int);
+int (*fp8)(char,int);
+int codelenth(int);
+int (*fp9)(int);
+int compression2(int,char *);
+int (*fp10)(int,char *);
+int compression3(int,char *);
+int (*fp11)(int,char *);
+int compression4(int,char *);
+int (*fp12)(int, char *);
+int compression5(int,char *);
+int (*fp13)(int,char *);
+int compression6(int,char *);
+int (*fp14)(int,char *);
+int compression7(int,char *);
+int (*fp15)(int,char *);
+int decompression();
+int (*fp16)();
+int decompression2(int,char *);
+int (*fp17)(int,char *);
+int decompression3(int,char *);
+int (*fp18)(int,char *);
+int decompression4(int,char *);
+int (*fp19)(int,char *);
+int decompression5(int,char *);
+int (*fp20)(int,char *);
+int decompression6(int,char *);
+int (*fp21)(int,char *);
+int decompression7(int,char *);
+int (*fp22)(int,char *);
+int (*arr_of_func_ptr[2])();
+
+@
+
+
+1.2
+log
+@now i add some declaration of new function of decompression
+@
+text
+@d47 1
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d32 16
+a47 1
+int (*fp15)();
+@

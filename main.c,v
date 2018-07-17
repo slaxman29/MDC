@@ -1,0 +1,120 @@
+head	1.4;
+access;
+symbols;
+locks
+	root:1.4; strict;
+comment	@ * @;
+
+
+1.4
+date	2017.07.15.04.03.56;	author root;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.07.15.03.49.54;	author root;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2016.10.22.06.55.26;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2016.10.21.11.24.18;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Main function is define inside this file
+@
+
+
+1.4
+log
+@*** empty log message ***
+@
+text
+@#include"header.h"
+#include"prototype.h"
+int main()
+{
+	int choice,*p;
+	fp1=mainmenu;
+	fp2=compression;
+	fp16=decompression;
+	arr_of_func_ptr[0] = *fp2;
+	arr_of_func_ptr[1] = *fp16;
+	p=&choice;
+	while(1)
+	{
+		p= (*fp1)();
+		if( *p == 0 )
+			goto OUT;
+
+		else if( *p < 0 || *p > 2 )
+			printf("you enterd wrong choice plz try again\n");
+
+		else
+			(*arr_of_func_ptr[*p-1])();
+
+	}
+OUT:
+return 0;
+}
+
+@
+
+
+1.3
+log
+@*** empty log message ***
+@
+text
+@d24 1
+a24 15
+/*		switch(*p)
+		{
+			case 1:
+				(*fp2)();
+				break;
+			case 2:
+				(*fp16)();
+				break;
+			case 0:
+				goto OUT;
+			default:
+				printf("you enterd wrong choice plz try again\n");
+				break;
+		}
+*/	}
+@
+
+
+1.2
+log
+@add anew decompression function
+@
+text
+@d9 2
+d15 10
+a24 1
+		switch(*p)
+d38 1
+a38 1
+	}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d8 1
+d19 1
+a19 1
+				printf("decompression\n");
+@

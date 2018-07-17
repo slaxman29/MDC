@@ -1,0 +1,116 @@
+#include"header.h"
+#include"prototype.h"
+int compression6(int fd1,char *ma)
+{	
+	int i,fd,j=0,sl;
+	unsigned char ch,copy1,copy2,*fn,c,byt;
+	sl=strlen(ma);
+	fd=(*fp4)("com6");
+	lseek(fd1,0,SEEK_SET);
+	while(1)
+	{
+		byt=byt^byt;
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xFC;
+							printf("if byt:=%d\n",byt);
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);	
+		c=c<<2;
+		byt=byt|c;
+							printf("byt1:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xFC;
+							printf("if byt:=%d\n",byt);
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<2;
+		copy1=c;
+		c=c>>6;
+		byt=byt|c;
+							printf("byt2:=%d\n",byt);
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<2;
+		byt=byt|copy1;
+							printf("byt3:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xFC;
+							printf("if byt:=%d\n",byt);
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<2;
+		copy1=c;
+		c=c>>4;
+		byt=byt|c;
+							printf("byt4:=%d\n",byt);
+//		printf("byt3:=%d\n",byt);
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<4;
+		byt=byt|copy1;
+							printf("byt5:=%d\n",byt);
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xFC;
+							printf("if byt:=%d\n",byt);
+			(*fp8)(byt,fd);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<2;
+		c=c>>2;
+		byt=byt|c;
+							printf("byt6:=%d\n",byt);
+		(*fp8)(byt,fd);
+	}
+	return 0;
+}

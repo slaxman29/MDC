@@ -1,0 +1,31 @@
+head	1.1;
+access;
+symbols;
+locks
+	laxman29:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2017.07.04.07.24.28;	author laxman29;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"header.h"
+#include"declaration.h"
+int compress7(int fd ,char *ma)
+{
+	printf("%s Begin of function",__func__);
+	printf("%s End of function",__func__);
+}
+@

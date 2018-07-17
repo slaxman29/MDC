@@ -1,0 +1,123 @@
+head	1.6;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.6
+date	2017.07.10.09.45.46;	author laxman29;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.07.06.10.05.50;	author laxman29;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.07.06.05.23.58;	author laxman29;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.07.03.17.35.16;	author laxman29;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.07.03.06.55.56;	author laxman29;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.07.02.04.37.05;	author laxman29;	state Exp;
+branches;
+next	;
+
+
+desc
+@declaration of funtions done
+@
+
+
+1.6
+log
+@se.
+@
+text
+@int codelength(int);
+char* creatmasterarray(int fd);
+int compression();
+int decompression();
+int openfile();
+int compress2(int,char*);
+int compress3(int,char*);
+int compress4(int,char*);
+int compress5(int,char*);
+int compress6(int,char*);
+int compress7(int,char*);
+int findindex(char,char*);
+int decompress2(int,char*);
+int decompress3(int,char*);
+int decompress4(int,char*);
+int decompress5(int,char*);
+int decompress6(int,char*);
+int decompress7(int,char*);
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d13 6
+@
+
+
+1.4
+log
+@se
+se.
+@
+text
+@d5 1
+a5 2
+int fileopenr();
+int openfilew();
+@
+
+
+1.3
+log
+@declared new function for compression of file 
+declared create master array fn  and fileopenr fn also
+@
+text
+@d6 1
+d13 1
+@
+
+
+1.2
+log
+@se
+@
+text
+@d1 2
+a2 1
+
+d5 7
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d1 1
+a1 1
+int displaymenu();
+@

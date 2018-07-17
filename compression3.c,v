@@ -1,0 +1,271 @@
+head	1.3;
+access;
+symbols;
+locks
+	root:1.3; strict;
+comment	@ * @;
+
+
+1.3
+date	2016.11.01.05.15.46;	author root;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2016.10.22.06.53.39;	author root;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2016.10.21.11.20.54;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@this is for 3 bit compression
+@
+
+
+1.3
+log
+@Addition of a new extra byt in compression file to give it a end of file
+@
+text
+@#include"header.h"
+#include"prototype.h"
+int compression3(int fd1,char *ma)
+{	
+	int i,fd,j=0,sl;
+	unsigned char ch,copy1,copy2,*fn,c,byt;
+	sl=strlen(ma);
+	fd=(*fp4)("com3");
+	lseek(fd1,0,SEEK_SET);
+	while(1)
+	{
+		byt=byt^byt;
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+							printf("byt10:=%d\n",byt);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);	
+		c=c<<5;
+		byt=byt|c;
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+							printf("byt10:=%d\n",byt);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<5;
+		c=c>>3;
+		byt=byt|c;
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+							printf("byt10:=%d\n",byt);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<5;
+		copy1=c;
+		c=c>>6;
+		byt=byt|c;
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<2;
+		byt=byt|copy1;
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+							printf("byt10:=%d\n",byt);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<5;
+		c=c>>1;
+		byt=byt|c;
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+							printf("byt10:=%d\n",byt);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<5;
+		c=c>>4;
+		byt=byt|c;
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+							printf("byt10:=%d\n",byt);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<5;
+		copy1=c;
+		c=c>>7;
+		byt=byt|c;
+		(*fp8)(byt,fd);
+		byt=byt^byt;
+		copy1=copy1<<1;
+		byt=byt|copy1;
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+							printf("byt10:=%d\n",byt);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<5;
+		c=c>>2;
+		byt=byt|c;
+		read(fd1,&ch,1);
+		if(ch==10)
+		{
+			byt=byt^byt;
+			byt=byt|0xF0;
+			(*fp8)(byt,fd);
+							printf("byt10:=%d\n",byt);
+			break;
+		}
+		for(i=0;i<sl;i++)
+		{
+			if(ma[i]==ch)
+			{
+				j=i;
+				break;
+			}
+		}
+		sprintf(&c,"%c",j);
+		c=c<<5;
+		c=c>>5;
+		byt=byt|c;
+							printf("byt10:=%d\n",byt);
+		(*fp8)(byt,fd);
+	}
+	return 0;
+}
+@
+
+
+1.2
+log
+@Add a new number to give as a end of file
+@
+text
+@d15 5
+d21 1
+d35 5
+d41 1
+d56 5
+d62 1
+d82 5
+d88 1
+d103 5
+d109 1
+d124 5
+d130 1
+d150 5
+d156 1
+d171 5
+d177 1
+d190 1
+a190 1
+	//						printf("byt10:=%d\n",byt);
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d6 1
+a6 1
+	unsigned char ch,copy1,copy2,*fn,c,byt,a[]="compression3";
+d8 1
+a8 2
+	fn=a;
+	fd=(*fp4)(fn);
+@

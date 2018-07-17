@@ -1,0 +1,40 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2016.10.21.11.25.17;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Mainmenu of the programe is here
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"header.h"
+#include"prototype.h"
+int* mainmenu()
+{
+	int choice,*p;
+	p=&choice;
+	printf("\t____mainmenu_____\n");
+	printf("\t1: Compression\n");
+	printf("\t2: Decompresson\n");
+	printf("\t0: Exit\n");
+	printf("Enter your choice:");
+	scanf("%d",p);
+	return p;
+}
+
+@

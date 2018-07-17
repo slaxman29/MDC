@@ -1,0 +1,32 @@
+head	1.1;
+access;
+symbols;
+locks
+	vkhasa:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2017.04.22.10.13.53;	author vkhasa;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"header.h"
+#include"prototype.h"
+int out()
+{
+	exit(EXIT_SUCCESS);
+
+}
+
+@

@@ -1,0 +1,87 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2016.10.22.06.55.22;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"header.h"
+#include"prototype.h"
+int decompression6(int fd1,char *ma)
+{
+	fp8=writefile;	
+	int i,j,fd;
+	unsigned char c,ch,cp,cp1,cp2,cp3,cp4,h;
+	fd=(*fp4)("decom6");
+		printf("fd:=%d\n",fd);
+	lseek(fd1,0,SEEK_SET);
+	printf("decompression6:=%s\n",ma);
+	while(1)
+	{
+		read(fd1,&ch,1);
+//						printf("ch:=%d\n",ch);
+		if(ch == 252)
+			break;
+		cp=ch;	cp3=ch;	h=cp;
+		ch=ch>>2;
+		i=(int)ch;
+//							printf("i:=%d\n",i);
+		c=*(ma+i);	
+							printf("%c",c);
+		(*fp8)(c,fd);
+		cp=cp<<6;
+		cp=cp>>2;
+		cp4=cp;
+		read(fd1,&ch,1);
+		cp1=ch;
+		if(ch == 252)
+			break;
+//						printf("ch:=%d\n",ch);
+		ch=ch>>4;
+		ch=ch|cp4;
+		i=(int)ch;
+//							printf("i:=%d\n",i);
+		c=*(ma+i);	
+							printf("%c",c);
+		(*fp8)(c,fd);
+		cp1=cp1<<4;
+		cp1=cp1>>2;
+		read(fd1,&ch,1);
+//						printf("ch:=%d\n",ch);
+		if(ch == 252)
+			break;
+		cp2=ch;
+		ch=ch>>6;
+		cp1=cp1|ch;
+		i=(int)cp1;
+//							printf("i:=%d\n",i);
+		c=*(ma+i);	
+							printf("%c",c);
+		(*fp8)(c,fd);
+		cp2=cp2<<2;
+		cp2=cp2>>2;
+		i=(int)cp2;
+//							printf("i:=%d\n",i);
+		c=*(ma+i);	
+							printf("%c",c);
+		(*fp8)(c,fd);
+	}
+	return 0;
+}
+@

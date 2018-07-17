@@ -1,0 +1,35 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2016.10.21.11.23.45;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"header.h"
+#include"prototype.h"
+char* filename()
+{
+	char *fn;
+	fn=(char *)malloc(5);
+	printf("Enter the file name:= ");
+	scanf("%s",fn);
+	return fn;
+}
+
+@

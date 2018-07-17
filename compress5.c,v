@@ -1,0 +1,118 @@
+head	1.2;
+access;
+symbols;
+locks
+	laxman29:1.2; strict;
+comment	@ * @;
+
+
+1.2
+date	2017.07.15.07.25.16;	author laxman29;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.07.04.07.24.27;	author laxman29;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.2
+log
+@*** empty log message ***
+@
+text
+@#include"header.h"
+int compress5(int fd ,char *ma)
+{	
+	printf("begin ch:=====\n");
+	unsigned char byt,c,ch;
+	int cfd,i,efd;
+	cfd = openfile("O_WRONLY");
+	efd = openfile("O_WRONLY"); 
+	while(1)
+	{
+ 	      	
+		c^=c;
+		byt^=byt;//xor operation 
+		read(fd,&ch,1);
+		printf("ch: %c\n",ch);
+		if(ch==10)
+		{
+			break;
+		}
+		i=findindex(ch,ma);
+		printf("%d\n",i);
+		c=(char)i;
+		c<<=6;
+		byt|=c;
+
+		read (fd,&ch,1);
+		printf("character is :%c\n",ch);
+		if(ch==10)
+		{
+			//byt|=0X0F;
+			//write(cfd,&byt,1);
+			break;
+		}
+		i=findindex(ch,ma);
+		printf("%s:%d",__func__,i);
+		c=(char)i;
+		c<<=6;
+		c>>=2;
+		byt|=c;
+
+		read(fd,&ch,1);
+		printf("ch: %c\n",ch);
+		if(ch==10)
+		{
+			break;
+		}
+		i=findindex(ch,ma);
+		printf("%d\n",i);
+		c=(char)i;
+		c<<=6;
+		c>>=4;
+		byt|=c;
+
+		read(fd,&ch,1);
+		printf("ch: %c\n",ch);
+		if(ch==10)
+		{
+			break;
+		}
+		i=findindex(ch,ma);
+		printf("%d\n",i);
+		c=(char)i;
+		c<<=6;
+		c>>=6;
+		byt|=c;
+
+		write(cfd,&byt,1);
+	}	
+
+	write(efd,ma,strlen(ma));
+	close(cfd);
+	close(efd);
+
+}
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@a1 1
+#include"declaration.h"
+d3 71
+a73 3
+{
+	printf("%s Begin of function",__func__);
+	printf("%s End of function",__func__);
+@

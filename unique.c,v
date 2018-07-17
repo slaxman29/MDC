@@ -1,0 +1,38 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2016.10.21.11.28.14;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"header.h"
+#include"prototype.h"
+int unique(int j,char a,char *ma)
+{	
+	int i;
+	for(i=0;i<=j;i++)
+	{
+		if(*(ma+i)==a)
+		{
+			return 0;	
+		}
+	}
+	return 1;
+}
+@

@@ -1,0 +1,39 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2016.10.21.11.28.22;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@Here we write the data into the file
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"header.h"
+#include"prototype.h"
+int writefile(char a,int fd2)
+{	
+	int count;
+	count=write(fd2,&a,1);
+	if(count==-1)
+	{
+		perror("read");
+		exit(EXIT_FAILURE);
+	}
+//	printf("count:=%d\n",count);	
+	return 0;
+}
+@

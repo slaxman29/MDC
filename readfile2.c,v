@@ -1,0 +1,39 @@
+head	1.1;
+access;
+symbols;
+locks
+	root:1.1; strict;
+comment	@ * @;
+
+
+1.1
+date	2016.10.21.11.27.32;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@#include"header.h"
+#include"prototype.h"
+char readfile2(int fd2)
+{	
+	int count;
+	char a;
+	count=read(fd2,&a,1);
+	if(count==-1)
+	{
+		perror("read");
+		exit(EXIT_FAILURE);
+	}
+	printf("a:=%c\n",a);	
+	return a;
+}
+@

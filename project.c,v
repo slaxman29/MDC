@@ -1,0 +1,237 @@
+head	1.9;
+access;
+symbols;
+locks; strict;
+comment	@ * @;
+
+
+1.9
+date	2017.07.14.17.12.40;	author laxman29;	state Exp;
+branches;
+next	1.8;
+
+1.8
+date	2017.07.14.09.56.09;	author laxman29;	state Exp;
+branches;
+next	1.7;
+
+1.7
+date	2017.07.14.09.54.07;	author laxman29;	state Exp;
+branches;
+next	1.6;
+
+1.6
+date	2017.07.10.09.48.50;	author laxman29;	state Exp;
+branches;
+next	1.5;
+
+1.5
+date	2017.07.04.16.03.49;	author laxman29;	state Exp;
+branches;
+next	1.4;
+
+1.4
+date	2017.07.04.07.15.06;	author laxman29;	state Exp;
+branches;
+next	1.3;
+
+1.3
+date	2017.07.03.17.39.51;	author laxman29;	state Exp;
+branches;
+next	1.2;
+
+1.2
+date	2017.07.03.06.53.14;	author laxman29;	state Exp;
+branches;
+next	1.1;
+
+1.1
+date	2017.06.30.15.47.36;	author root;	state Exp;
+branches;
+next	;
+
+
+desc
+@this is the main source file for project 
+multiple data compression and decompression is done in it
+@
+
+
+1.9
+log
+@*** empty log message ***
+@
+text
+@#include"header.h"
+#include"declaration.h"
+int main()
+ {
+       char ch, *ma,choice;
+       int flag,i,j,ret,fd;
+       printf("******Multiple Data Compression And Encryption Using Iterative Technique****** \n ");\
+       printf("___________MAIN MENU__________ \n");
+while(1)
+{
+       printf ("c:Compression\n");
+       printf ("d:Decompression\n");
+       printf ("e:EXIT\n");
+       printf ("Enter Your Choice\n");
+       scanf (" %c",&choice);
+       switch (choice)
+	{              
+	           case 'c': 
+			compression();
+			break;
+     
+ 		case 'd': 
+			 
+	       		 printf("Decompression of file\n");
+			decompression();
+		 	 break;
+ 	
+		case 'e':
+		
+		        printf("EXIT\n");
+			exit(EXIT_SUCCESS);
+	}
+	 	
+ }      
+}
+
+@
+
+
+1.8
+log
+@*** empty log message ***
+@
+text
+@d11 3
+a13 3
+       printf ("1:Compression\n");
+       printf ("2:Decompression\n");
+       printf ("0:EXIT\n");
+@
+
+
+1.7
+log
+@*** empty log message ***
+@
+text
+@d15 1
+a15 1
+       scanf ("%d",&choice);
+@
+
+
+1.6
+log
+@*** empty log message ***
+@
+text
+@d5 2
+a6 2
+       char ch, *ma;
+       int choice,flag,i,j,ret,fd;
+d18 1
+a18 1
+	           case 1: 
+d22 1
+a22 1
+ 		case 2: 
+d28 1
+a28 1
+		case 0:
+@
+
+
+1.5
+log
+@*** empty log message ***
+@
+text
+@d25 1
+@
+
+
+1.4
+log
+@se
+@
+text
+@a18 1
+	                printf("\nCompression\n");
+@
+
+
+1.3
+log
+@shortened the program
+@
+text
+@d5 1
+a5 1
+       char ch, ma[128];
+@
+
+
+1.2
+log
+@se\
+@
+text
+@d2 1
+@
+
+
+1.1
+log
+@Initial revision
+@
+text
+@d19 1
+a19 42
+		        fd = open ("Myfile",O_RDONLY);
+                        if (fd==-1)
+			{	perror("open");
+				close(fd);
+				exit(EXIT_FAILURE);
+		        }
+			printf("File opened successfully.\n");
+			flag=i=0;
+			while(1)
+			{
+				ret=read(fd,&ch,1);
+				if(ret==-1)
+				 
+				 {
+				     perror("read");
+				     close(fd);
+				     exit(EXIT_FAILURE);
+
+				 }
+				 
+				if(ret==0)
+				 {
+				     close(fd);
+				     break;
+				 }
+				for(j=0;j<i;j++)
+			        {
+				 	if(ma[j]==ch)
+					flag=1;
+				}
+				if(flag==0)
+				{	ma[i]=ch;
+					i++;
+				}
+				flag=0;
+			}
+			ma[i]=NULL;
+			printf("ma:\t");
+			for(j=0;j<i;j++)
+			    printf("%c",ma[j]);
+			close(fd);
+			printf("\nFile Closed Successfully\n");
+@
